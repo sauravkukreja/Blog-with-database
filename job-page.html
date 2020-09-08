@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<!-- Mirrored from www.vasterad.com/themes/workscout_2019/job-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2020 07:15:37 GMT -->
+
+<head>
+
+	<link rel="icon" type="image/png" href="./images/fav.png" sizes="16x16">
+	<!-- Basic Page Needs
+================================================== -->
+	<meta charset="utf-8">
+	<title>Helping Hands - Job Description </title>
+
+	<!-- Mobile Specific Metas
+================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+================================================== -->
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/stylee.css">
+	<link rel="stylesheet" href="css/colors.css">
+
+	<script>
+		if (!localStorage.getItem('token')) {
+			window.location.replace('/login.html')
+		}
+	</script>
+
+	<!-- Axios -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<script src="./javascript/job-page.js"></script>
+
+</head>
+
+<body onload="getJob()">
+	<div id="wrapper">
+
+
+		<!-- Header
+================================================== -->
+		<header class="sticky-header">
+			<div class="container">
+				<div class="sixteen columns">
+
+					<!-- Logo -->
+					<div id="logo">
+						<h1><a href="index.html"><img style="width: 150px;height: 70px;" src="images/logo.png"
+									alt="Work Scout" /></a></h1>
+					</div>
+
+					<!-- Menu -->
+					<nav id="navigation" class="menu">
+						<ul id="responsive">
+
+							<li>
+								<a href="./index_job_user.html">Home</a>
+							</li>
+
+							<li>
+								<a id="current" href="./browse-jobs_user.html">Jobs</a>
+							</li>
+
+							<li>
+								<a href="./dashboard-manage-applications_user.html">Job News</a>
+							</li>
+
+							<li id="dash">
+								<script>
+									if (localStorage.getItem('admin') === 'true') document.getElementById('dash').innerHTML = '<a href="./dashboard.html">Dashboard</a>'
+								</script>
+							</li>
+						</ul>
+
+						<ul class="float-right">
+							<li><a href="#" onclick="logout()"><i class="fa fa-user"></i> Log Out</a></li>
+						</ul>
+
+					</nav>
+
+					<!-- Navigation -->
+					<div id="mobile-navigation">
+						<a href="#menu" class="menu-trigger"><i class="fa fa-reorder"></i> Menu</a>
+					</div>
+
+				</div>
+			</div>
+		</header>
+		<div class="clearfix"></div>
+
+		<div id="jobContent">
+			<!-- Injected from Javascript -->
+		</div>
+
+
+		<!-- Footer
+================================================== -->
+		<div class="margin-top-50"></div>
+
+		<footer class="full-footer">
+			<div class="floatleft1">
+			<div class="container topFooter p-md-3 p-4">
+				<div class="row">
+					<div class="col-md-3">
+						<h5 style="color: white">HELPING HANDS</h5>
+
+						<p>
+							Helping Hands is a Research based Platform / Blog / Medium for
+							anyone,anytime and anywhere.
+						</p>
+						<br /><br />
+						<div class="footan">
+							<a class="p-2" href="https://www.facebook.com/helpinghands4world/">
+								<img src="./images/facebook.png" class="logo-icon-smalll" alt="facebook"></a>
+							<a class="p-2" href="https://www.instagram.com/we_r_helping_hands">
+								<img src="./images/instagram.png" class="logo-icon-smalll" alt="icon-instagram"></a>
+							<a class="p-2" href="https://www.linkedin.com/company/we-r-helping-hands">
+								<img src="./images/linkedin.png" class="logo-icon-smalll" alt="icon-linkedin"></a>
+							<a class="p-2" href="https://twitter.com/werhelpinghands">
+								<img src="./images/twitter.png" class="logo-icon-smalll" alt="icon-twitter"></i></a>
+							<a class="p-2" href="tel:+917906980871">
+								<img src="./images/whatsapp.png" class="logo-icon-smalll" alt="icon-whatsapp"></i></a>
+						</div>
+						<br>
+						<br>
+					</div>
+					&#32;
+
+
+					<div class="col-md-3">
+						<h5 style="color:white;">Important Links</h5>
+						<a class="p-1" href="./login.html">Accounts</a><br />
+						<a class="p-1" href="./index_job_common.html">Find Jobs</a><br />
+						<a class="p-1" href="./career.html">Careers</a><br />
+						<br>
+
+					</div>
+
+
+					<div class="col-md-3">
+						<h5 style="color: white;">Our Services</h5>
+
+						<a class="p-1" href="./projects.html">Projects</a><br />
+						<a class="p-1" href="./surveys.html">Surveys</a><br />
+						<br />
+						<h5 style="color: white">Available in:</h5>
+						<div class="footan">
+							<a class="p-1" href="#"><img src="./images/android.png" class="logo-icon"
+									alt="icon-android"></a>
+							<a class="p-1" href="#"><img src="./images/apple.png" class="logo-icon"
+									alt="icon-apple"></a></div>
+						<br>
+						<br>
+					</div>
+					<div class="col-md-3">
+
+						<h5 style="color:white;">Contact Us</h5>
+
+						<div><a href="tel:+917906980871" class="footann">
+							<img src="./images/call.png" style="width: 25px;height: 20px;" alt="icon-call">&nbsp; +(91) 7906980871</a></div>
+						<br />
+						<div><a style="margin-top: -20px;" id="fntfooter" class="footann" href="mailto:werrhelpinghands@gmail.com">
+							<img src="./images/gmail.png" style="width: 25px;height: 20px;" alt="icon-gmail">&nbsp;
+							werrhelpinghands@gmail.com</a></div><br />
+						<br>
+						<div style="width: 100;height: 90; overflow: hidden;">
+							<iframe class="embed-responsive-item"
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448181.16374162206!2d76.81306442366603!3d28.647279935570428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1561834027057!5m2!1sen!2sin"
+								frameborder="10px" frameborder="0" style="border:0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="visitor">
+				<!-- hitwebcounter Code START -->
+				<h6 style="color: white !important;">VISITOR NO. :</h6>
+				<div
+					style="width: 90px;height: 30px;  position: relative;display: flex;justify-content: center;align-items: center;">
+					<img src="https://hitwebcounter.com/counter/counter.php?page=7230855&style=0006&nbdigits=5&type=ip&initCount=0"
+						title="User Stats" Alt="PHP Hits Count" border="0" /></div>
+
+			</div>
+			<div class="bootfoot">
+				<p style="font-size: 12px;">Copyrights @ Helping Hands 2020 - All Rights Reserved
+				</p>
+			</div>
+		</footer>
+
+		<!-- Back To Top Button -->
+		<div id="backtotop"><a href="#"></a></div>
+
+	</div>
+	<!-- Wrapper / End -->
+
+
+	<!-- Scripts
+================================================== -->
+	<script src="scripts/jquery-3.4.1.min.js"></script>
+	<script src="scripts/jquery-migrate-3.1.0.min.js"></script>
+	<script src="scripts/custom.js"></script>
+	<script src="scripts/jquery.superfish.js"></script>
+	<script src="scripts/jquery.themepunch.tools.min.js"></script>
+	<script src="scripts/jquery.themepunch.revolution.min.js"></script>
+	<script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+	<script src="scripts/jquery.flexslider-min.js"></script>
+	<script src="scripts/chosen.jquery.min.js"></script>
+	<script src="scripts/jquery.magnific-popup.min.js"></script>
+	<script src="scripts/waypoints.min.js"></script>
+	<script src="scripts/jquery.counterup.min.js"></script>
+	<script src="scripts/jquery.jpanelmenu.js"></script>
+	<script src="scripts/stacktable.js"></script>
+	<script src="scripts/slick.min.js"></script>
+	<script src="scripts/headroom.min.js"></script>
+
+
+
+
+
+
+</body>
+
+<!-- Mirrored from www.vasterad.com/themes/workscout_2019/job-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 May 2020 07:15:37 GMT -->
+
+</html>
